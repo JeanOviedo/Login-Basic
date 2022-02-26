@@ -1,7 +1,7 @@
 # Login Simple
 
 Objetivo
-Desarrollar una aplicación es una app con un login simple que permite eliminar elementos mediante un CRUD via un mockserver utilizando POSTMAN.
+Desarrollar una aplicación con un login simple que permite eliminar elementos mediante un CRUD via un mockserver utilizando POSTMAN.
 
 
 
