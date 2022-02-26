@@ -227,6 +227,7 @@ height: 35px;
  background-color: #d62828; 
  text-align: center;
   width: 100%;
+  padding-top: 16px;
  
 }
 
@@ -465,7 +466,7 @@ color: beige;
   border-radius: 0.1em;
   z-index: 2;
   padding: 8px;
-  border-radius: 7px;
+  border-radius: 2px;
 
 }
 
@@ -477,11 +478,11 @@ color: beige;
 }
 
 .menu a:hover {
-  background-color: #c6c4e2;
-  color: #3e3d70;
+  background-color: #ffffff;
+  color: #330303;
   transition: ease-in 0.3s;
   font-weight: bold;
-  border-radius: 0.5em;
+  border-radius: 0.1em;
   z-index: 2;
   padding: 14px;
 }
@@ -582,9 +583,9 @@ color: beige;
 
 .menu {
   text-align: center !important;
-    font-size: 11px;
+    font-size: 9px;
     margin: 9px;
-    width: 60%;
+    width: 70%;
   }
 
 .logoder{

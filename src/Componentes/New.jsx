@@ -11,7 +11,7 @@ export default function New() {
   const [name, setName] = useState("");
   const [lastname, setLastName] = useState("");
   const [company, setCompany] = useState("");
-  const [error, setError] = useState("");
+  const [elerror, setError] = useState("");
 
 
   
@@ -58,15 +58,15 @@ export default function New() {
   return (
     <Fragment>
       <div className="modal">
-
-        <form onSubmit={handlenNewUser}><br/>
+      {elerror}
+        <form onSubmit={handlenNewUser}>
             <img className="Imamin"  src={Img}/><br></br><p>Ingrese datos de nuevo usuario</p>
           <div className="Search">
             
             
             <input 
               type="text" placeholder="Nombre"
-              onChange={(event) => handleCambioEmail(event)}
+              onChange={(event) => handleCambioName(event)}
             
               name="nombre"
               id="nombre"

@@ -43,7 +43,7 @@ export default function Navbar() {
                     {!login == true? (
                         <Fragment>
                             <li>
-                                <Link onClick={
+                                <Link to="" onClick={
                                         () => {
                                             New();
                                         } }>New User</Link>
