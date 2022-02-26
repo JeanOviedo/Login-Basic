@@ -1,31 +1,35 @@
 import React, { Fragment, useState } from "react";
 
-import { ElAddToken, ElActionNew } from "../Redux/Actions";
-import { useSelector, useDispatch } from "react-redux";
+import { ElActionNew , ActionNewUser} from "../Redux/Actions";
+import { useDispatch } from "react-redux";
 import Img from "../Icos/info.png"
 
 export default function New() {
     const dispatch = useDispatch();
-  let modaldata = useSelector((state) => state.modaldata);
-  //let error = useSelector((state) => state.error);
-  const [email2, setEmail] = useState("");
-  const [pass2, setPass] = useState("");
+
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [company, setCompany] = useState("");
   const [error, setError] = useState("");
 
 
-  function handleClick(evento) {
-    evento.preventDefault();
-    if (email2 && pass2) {
+  
+
+  function handlenNewUser (event) {
+    event.preventDefault();
+    if (email && name && company && lastname) {
       setError("Enviando data")
-      dispatch(ElAddToken(email2, pass2));
+      dispatch(ActionNewUser(name, lastname, company, email));
       setError("")
       
     }
     else{
       setError("Verifique si campos estan vacios")
     }
-    
   }
+
+
 
   function handleCambioEmail(event) {
     event.preventDefault();
@@ -36,15 +40,26 @@ export default function New() {
     dispatch(ElActionNew(false));
   }
 
-  function handleCambioPass(event) {
+  function handleCambioName(event) {
     event.preventDefault();
-    setPass(event.target.value);
+    setName(event.target.value);
   }
+
+  function handleCambioLastName(event) {
+    event.preventDefault();
+    setLastName(event.target.value);
+  }
+
+  function handleCambioCompany(event) {
+    event.preventDefault();
+    setCompany(event.target.value);
+  }
+
   return (
     <Fragment>
       <div className="modal">
 
-        <form onSubmit={handleClick}>
+        <form onSubmit={handlenNewUser}><br/>
             <img className="Imamin"  src={Img}/><br></br><p>Ingrese datos de nuevo usuario</p>
           <div className="Search">
             
@@ -60,7 +75,7 @@ export default function New() {
             <br/><br/>
             <input 
               type="text" placeholder="Apellido"
-              onChange={(event) => handleCambioEmail(event)}
+              onChange={(event) => handleCambioLastName(event)}
             
               name="apellido"
               id="apellido"
@@ -81,7 +96,7 @@ export default function New() {
 <br/><br/>
             <input 
               type="text" placeholder="Empresa"
-              onChange={(event) => handleCambioEmail(event)}
+              onChange={(event) => handleCambioCompany(event)}
             
               name="empresa"
               id="empresa"
@@ -91,17 +106,7 @@ export default function New() {
 
           </div>
 <center>
-          <div className="Search">
          
-            <input 
-              type="password"
-              name="pass" placeholder="Password "
-              onChange={(event) => handleCambioPass(event)}
-           
-              id="pass"
-              required
-            />
-          </div>
 
           <div >
             <input  className="buscarboton"type="submit" />
