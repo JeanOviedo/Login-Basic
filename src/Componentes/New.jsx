@@ -45,18 +45,50 @@ export default function New() {
       <div className="modal">
 
         <form onSubmit={handleClick}>
-            <img className="Ima2"  src={Img}/><br></br><p>Ingrese datos de nuevo usuario</p>
+            <img className="Imamin"  src={Img}/><br></br><p>Ingrese datos de nuevo usuario</p>
           <div className="Search">
             
             
             <input 
-              type="text" placeholder="Username"
+              type="text" placeholder="Nombre"
+              onChange={(event) => handleCambioEmail(event)}
+            
+              name="nombre"
+              id="nombre"
+              required
+            />
+            <br/><br/>
+            <input 
+              type="text" placeholder="Apellido"
+              onChange={(event) => handleCambioEmail(event)}
+            
+              name="apellido"
+              id="apellido"
+              required
+            />
+
+<br/><br/>
+            <input 
+              type="text" placeholder="Email"
               onChange={(event) => handleCambioEmail(event)}
             
               name="email"
               id="email"
               required
             />
+
+
+<br/><br/>
+            <input 
+              type="text" placeholder="Empresa"
+              onChange={(event) => handleCambioEmail(event)}
+            
+              name="empresa"
+              id="empresa"
+              required
+            />
+
+
           </div>
 <center>
           <div className="Search">
