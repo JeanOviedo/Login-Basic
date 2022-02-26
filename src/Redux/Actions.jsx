@@ -77,7 +77,7 @@ export const ActionNewUser = ( name, lastname, company, email) => {
                 }
                 let combine = items.concat(newuser);
                 localStorage.setItem("Users", JSON.stringify(combine));
-                dispatch(ActionTodosMenu());
+                dispatch({type: "TODOS", payload: JSON.parse(localStorage.getItem("Users"))});
                 dispatch({type: "MODAL", payload: true, msg: "Guardado"});
             } else {
                 dispatch({type: "LOGIN", payload: true});

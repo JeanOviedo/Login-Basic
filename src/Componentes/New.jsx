@@ -84,7 +84,7 @@ export default function New() {
 
 <br/><br/>
             <input 
-              type="text" placeholder="Email"
+              type="enail" placeholder="Email"
               onChange={(event) => handleCambioEmail(event)}
             
               name="email"
