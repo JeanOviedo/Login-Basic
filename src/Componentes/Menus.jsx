@@ -11,13 +11,17 @@ import {useSelector, useDispatch} from "react-redux";
 import Modal from "./Modal";
 
 import Login from "./Login";
-import {Link} from "react-router-dom";
+
 import New from "./New";
 export default function Menus() {
-    let todos = useSelector((state) => state.todos);
+    
+    
+    let todos = localStorage.getItem("Users");
+    todos = JSON.parse(todos);
     const login = useSelector((state) => state.login);
     const modal = useSelector((state) => state.modal.visible);
     const newuser = useSelector((state) => state.new);
+    let todos2 = useSelector((state) => state.todos);
     const dispatch = useDispatch();
     const boton = useRef(null);
     let dataa = localStorage.getItem("myData");
@@ -27,13 +31,11 @@ export default function Menus() {
             dispatch(ElLogin());
         } else {
 
-            if (! todos.length) {
+            if (!todos) {
                 dispatch(ActionTodosMenu());
             } else {
 
-                todos = localStorage.getItem("Users");
-                todos = JSON.parse(todos);
-
+                todos = todos2;
                 console.log(todos, "LOCAL DATAS")
             }
         }

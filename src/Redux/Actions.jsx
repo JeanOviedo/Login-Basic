@@ -67,20 +67,22 @@ export const ActionNewUser = ( name, lastname, company, email) => {
 
                 const items = JSON.parse(localStorage.getItem("Users"));
                 let newuser = {
-                    "id": Math.floor(Math.random()*90000) + 10000,
+                    
                     "first_name": name,
                     "last_name": lastname,
                     "email": email,
+                    "id": Math.floor(Math.random()*90000) + 10000,
                     "company":  company,
                     "img": "https://cdn-icons-png.flaticon.com/512/219/219986.png"
 
                 }
                 let combine = items.concat(newuser);
+                console.log( JSON.stringify(combine), "LOCAL NEW USER");
                 localStorage.setItem("Users", JSON.stringify(combine));
                 dispatch({type: "TODOS", payload: JSON.parse(localStorage.getItem("Users"))});
                 dispatch({type: "MODAL", payload: true, msg: "Guardado"});
             } else {
-                dispatch({type: "LOGIN", payload: true});
+               
                 dispatch({type: "MODAL", payload: true, msg: "Ocurrio un error "});
             }
         } catch (error) {
