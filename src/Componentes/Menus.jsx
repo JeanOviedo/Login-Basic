@@ -76,7 +76,7 @@ export default function Menus() {
                 console.log(todos, "TODOS FRONT")
             }
                 {
-                todos.length ? todos.map((todos) => (
+                todos.length && login == false ? todos.map((todos) => (
                     <div className="card"
                         key={
                             Math.random(5)
@@ -118,7 +118,7 @@ export default function Menus() {
                         <br/>
                     </div>
                 )) : ! todos ? "" : (
-                    <h2 className="container2">No hay usuarios, recargue pagina para descargarlos de nuevo desde API POSTMAN o Mockserver llego al limite mensual</h2>
+                    <h3 className="container2">Sin data, recargue pagina para descargarlos de nuevo desde API POSTMAN o Mockserver llego al limite mensual, si sigue sin funcionar verifique si tiene la sesión iniciada.</h3>
                 )
             }
                 <br/>
